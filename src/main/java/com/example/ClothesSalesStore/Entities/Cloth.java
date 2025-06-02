@@ -1,6 +1,7 @@
 package com.example.ClothesSalesStore.Entities;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,8 +39,13 @@ public class Cloth {
     @Column(name="ImageUrl", length = 255)
     private String ImageUrl;
 
-    // CategoryId is used to link the cloth to a specific category
-    private int CategoryId;
+    // Relationship with Cloth
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private Category category;
+
+    @OneToMany(mappedBy = "cloth")
+    private List<CartItem> cartItems = new ArrayList<>();
 
 
 }

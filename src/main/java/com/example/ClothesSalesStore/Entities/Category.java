@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -21,4 +24,8 @@ public class Category {
     private int id;
     @Column(name="CategoryName", length = 100, nullable = false)
     private String name;
+
+    //Relationship with Category
+    @OneToMany(mappedBy = "category")
+    private List<Cloth> cloths = new ArrayList<>();
 }

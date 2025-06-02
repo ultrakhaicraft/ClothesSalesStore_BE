@@ -25,7 +25,12 @@ public class CartItem {
     private double Price; // Price per item at the time of adding to cart
 
     // Relationship with CartItem
-    private int CartId;
-    private int ProductId; // This refers to the Cloth entity
 
+    @ManyToOne
+    @JoinColumn(name = "CartID")
+    private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "ClothId")
+    private Cloth cloth;
 }

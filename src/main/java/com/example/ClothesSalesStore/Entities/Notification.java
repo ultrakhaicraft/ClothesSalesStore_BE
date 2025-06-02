@@ -29,5 +29,7 @@ public class Notification {
     @Column(name="CreatedAt", nullable = false)
     private LocalDateTime CreatedAt; // ISO 8601 format or any preferred format
 
-    private int UserId; // ID of the user to whom the notification is sent
+    @ManyToOne
+    @JoinColumn(name = "UserID")
+    private User user;
 }

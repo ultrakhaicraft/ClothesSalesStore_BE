@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -27,4 +30,8 @@ public class StoreLocation {
 
     @Column(name="Address", length = 255, nullable = false)
     private String Address; // Full address of the store location
+
+    //Relationship with StoreLocation
+    @OneToMany(mappedBy = "storeLocation")
+    private List<Order> orders = new ArrayList<>();
 }

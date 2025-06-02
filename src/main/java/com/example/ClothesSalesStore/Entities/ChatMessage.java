@@ -28,6 +28,7 @@ public class ChatMessage {
     @Column(name="SentAt", nullable = false)
     private LocalDateTime SentAt; // ISO 8601 format or any preferred format
 
-
-    private int UserId; // ID of the user who sent the message
+    @ManyToOne
+    @JoinColumn(name = "UserID")
+    private User user;
 }

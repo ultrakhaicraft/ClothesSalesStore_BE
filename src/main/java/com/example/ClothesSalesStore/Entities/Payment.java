@@ -28,5 +28,8 @@ public class Payment {
     @Column(name="PaymentStatus", length = 50, nullable = false)
     private String PaymentStatus;
 
-    private int OrderId;
+    //Relationship with Payment
+    @OneToOne
+    @JoinColumn(name = "OrderID")
+    private Order order;
 }

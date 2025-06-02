@@ -30,7 +30,16 @@ public class Order {
     @Column(name="OrderDate", nullable = false)
     private LocalDateTime OrderDate; // ISO 8601 format or any preferred format
 
+    //Relationship with Order
+    @OneToOne
+    @JoinColumn(name = "CartID")
+    private Cart cart;
 
-    private int CartId;
-    private int UserId;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn(name = "LocationId")
+    private StoreLocation storeLocation;
+
 }
