@@ -49,4 +49,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<ChatMessage> messages = new ArrayList<>();
+
+
+
+
+
 }
